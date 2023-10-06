@@ -1,0 +1,29 @@
+1) pip install pipenv - Установить pipenv(Один раз для всего компьютера)
+2) pipenv shell - Открыть консоль виртуального окружения(Если его нет, то pipenv его создаст)
+3) pip install django
+4) django-admin startproject core . - Создать ядро django проекта
+5) python manage.py migrate - Провести миграцию
+6) python manage.py createsuperuser - Создать главного админа
+7) python manage.py runserver - Запустить локальный сервер
+ctrl+c - Завершить действие/выключить локальный сервер
+8) python manage.py startapp blogapp - Создать приложение с именем blogapp
+9) Зайти в core/setting.py и добавить приложение в INSTALLED_APPS
+
+При создании новых моделей, мы должны объявить их django:
+    python manage.py makemigrations
+Провести миграцию:
+    python manage.py migrate
+
+Чтобы можно было управлять данными в новой модельке, ее нужно добавить в админку:
+1) Зайти в файл admin.py внутри приложения
+2) Импортировать все модели из .models(Если писать без точки, то он будет искать библиотеку с именем models):
+    from .models import *
+3) Зарегистрировать ее в админке
+    admin.site.register(Post)
+
+Заметки по полям(Field):
+0)
+1) models.CharField(max_length=) - Тот же самый VarChar, всегда необходимо указывать max_length=<ТУТ ДОЛЖНА БЫТЬ ДЛИНА>
+2) models.ForeignKey(<ИМЯ МОДЕЛИ>, on_delete=) - Внешний ключ,
+3) models.TextField - Text. Поле для хранения информации типа данных string
+4)
