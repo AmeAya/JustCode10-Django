@@ -5,6 +5,10 @@
     <title>Post List Template</title>
 </head>
 <body>
-
+    <h2>Просто выгружаем переменную: {{ posts }}</h2>
+    <h2>Через цикл:</h2>
+    {% for post in posts %}
+        <h3>{{ post.title }} - {{ post.body }}</h3>
+    {% endfor %}
 </body>
 </html>
