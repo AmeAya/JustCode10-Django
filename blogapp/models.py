@@ -12,3 +12,8 @@ class Post(models.Model):
 
     def __str__(self):
         return str(self.title) + ' - ' + str(self.created_at)[:19]
+
+
+class Flower(models.Model):
+    name = models.CharField(max_length=100)
+    color = models.CharField(max_length=20)
