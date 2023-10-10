@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Detail View</title>
+</head>
+<body>
+    <a href="{% url 'post_list_url' %}">All Posts</a>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.author }}</p>
+    <h3>{{ post.body }}</h3>
+</body>
+</html>

@@ -8,7 +8,8 @@
     <h2>Просто выгружаем переменную: {{ posts }}</h2>
     <h2>Через цикл:</h2>
     {% for post in posts %}
-        <h3>{{ post.title }} - {{ post.body }}</h3>
+        <h3>{{ post.id }}.{{ post.title }} - {{ post.body }}</h3>
+        <a href="{% url 'post_detail_url' post.id %}">Show Post</a>
     {% endfor %}
 </body>
 </html>
