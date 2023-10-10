@@ -6,6 +6,7 @@
 </head>
 <body>
     <h2>Просто выгружаем переменную: {{ posts }}</h2>
+    <a href="{% url 'post_create_url' %}">Create New Post</a>
     <h2>Через цикл:</h2>
     {% for post in posts %}
         <h3>{{ post.id }}.{{ post.title }} - {{ post.body }}</h3>
