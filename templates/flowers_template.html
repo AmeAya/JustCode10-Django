@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flowers</title>
+</head>
+<body>
+    <h1>{{ message }}</h1>
+    <ul>
+        {% for flower in flowers %}
+            <li>{{ flower.name }}</li>
+            <p>
+                <a href="{% url 'flowers_detail_url' flower.id %}">Get Info</a>
+            </p>
+        {% endfor %}
+    </ul>
+</body>
+</html>

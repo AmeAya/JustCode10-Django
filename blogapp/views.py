@@ -35,3 +35,20 @@ class PostDeleteView(DeleteView):
     template_name = 'post_delete_template.html'
     context_object_name = 'post'
     success_url = reverse_lazy('post_list_url')
+
+
+def FlowersView(request):
+    flowers_all = Flower.objects.all()
+    context = {
+        'flowers': flowers_all,
+        'message': 'Hello my Friend! :)'
+    }
+    return render(request=request, template_name='flowers_template.html', context=context)
+
+
+def FlowersDetailView(request, flower_id):
+    flower = Flower.objects.get(id=flower_id)
+    context = {
+        'flower': flower
+    }
+    return render(request=request, template_name='flower_detail_template.html', context=context)
