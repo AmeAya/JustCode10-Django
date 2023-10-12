@@ -21,3 +21,17 @@ class PostCreateView(CreateView):
     template_name = 'post_create_template.html'
     fields = ['title', 'body', 'author']
     success_url = reverse_lazy('post_list_url')
+
+
+class PostUpdateView(UpdateView):
+    model = Post
+    template_name = 'post_update_template.html'
+    fields = ['title', 'body', 'author']
+    success_url = reverse_lazy('post_list_url')
+
+
+class PostDeleteView(DeleteView):
+    model = Post
+    template_name = 'post_delete_template.html'
+    context_object_name = 'post'
+    success_url = reverse_lazy('post_list_url')

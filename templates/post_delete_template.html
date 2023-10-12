@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Delete</title>
+</head>
+<body>
+    <h1>Вы уверены что хотите удалить пост {{ post.title }}?</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Delete Post">
+    </form>
+    <form action="{% url 'post_detail_url' post.id %}" method="get">
+        <input type="submit" value="Get Back to Post">
+    </form>
+</body>
+</html>

@@ -5,7 +5,15 @@
     <title>Post Detail View</title>
 </head>
 <body>
-    <a href="{% url 'post_list_url' %}">All Posts</a>
+    <p>
+        <a href="{% url 'post_list_url' %}">All Posts</a>
+    </p>
+    <p>
+        <a href="{% url 'post_update_url' post.id %}">Update Post</a>
+    </p>
+    <p>
+        <a href="{% url 'post_delete_url' post.id %}">Delete Post</a>
+    </p>
     <h1>{{ post.title }}</h1>
     <p>{{ post.author }}</p>
     <h3>{{ post.body }}</h3>
