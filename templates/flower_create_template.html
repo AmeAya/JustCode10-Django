@@ -5,7 +5,7 @@
     <title>Create Flower</title>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <p>
             <label for="name">Input Flower Name:</label>
@@ -15,6 +15,11 @@
         <p>
             <label for="color">Input Flower Color:</label>
             <input type="text" id="color" name="color" required>
+        </p>
+
+        <p>
+            <label for="image">Input Flower Image:</label>
+            <input type="file" id="image" name="image">
         </p>
 
         <input type="submit" value="Create Flower">

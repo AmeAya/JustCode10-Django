@@ -6,12 +6,16 @@
 </head>
 <body>
     <h1>{{ message }}</h1>
+    <a href="{% url 'flower_create_url' %}">Add new Flower</a>
     <ul>
         {% for flower in flowers %}
-            <li>{{ flower.name }}</li>
+        <li>
             <p>
+                {{ flower.name }}
+                <br>
                 <a href="{% url 'flowers_detail_url' flower.id %}">Get Info</a>
             </p>
+        </li>
         {% endfor %}
     </ul>
 </body>

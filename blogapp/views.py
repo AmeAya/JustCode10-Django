@@ -64,6 +64,7 @@ def FlowerCreateView(request):
     elif request.method == 'POST':
         name = request.POST.get('name').capitalize()
         color = request.POST.get('color').capitalize()
-        flower = Flower(name=name, color=color)
+        image = request.FILES.get('image')
+        flower = Flower(name=name, color=color, image=image)
         flower.save()
-        return FlowersView(request)
+        return redirect('flowers_url')

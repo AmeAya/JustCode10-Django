@@ -5,7 +5,14 @@
     <title>Flower Detail Template</title>
 </head>
 <body>
-    <h1>{{ flower.name }}</h1>
-    <h3>{{ flower.color }}</h3>
+    <div align="center">
+        <h1>{{ flower.name }}</h1>
+        <h3>{{ flower.color }}</h3>
+        {% if flower.image %}
+            <img src="{{ flower.image.url }}" height="600">
+        {% else %}
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png" height="600">
+        {% endif %}
+    </div>
 </body>
 </html>
