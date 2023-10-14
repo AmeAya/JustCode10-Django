@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Flower</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>
+            <label for="name">Input Flower Name:</label>
+            <input type="text" id="name" name="name" required>
+        </p>
+
+        <p>
+            <label for="color">Input Flower Color:</label>
+            <input type="text" id="color" name="color" required>
+        </p>
+
+        <input type="submit" value="Create Flower">
+    </form>
+</body>
+</html>

@@ -11,4 +11,5 @@ urlpatterns = [
 
     path('flowers', FlowersView, name='flowers_url'),
     path('flower/<int:flower_id>', FlowersDetailView, name='flowers_detail_url'),
+    path('create_flower', FlowerCreateView, name='flower_create_url'),
 ]

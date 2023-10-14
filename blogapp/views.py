@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
@@ -38,7 +38,11 @@ class PostDeleteView(DeleteView):
 
 
 def FlowersView(request):
-    flowers_all = Flower.objects.all()
+    color = request.GET.get('color')
+    if color is not None:
+        flowers_all = Flower.objects.filter(color=color.capitalize())
+    else:
+        flowers_all = Flower.objects.all()
     context = {
         'flowers': flowers_all,
         'message': 'Hello my Friend! :)'
@@ -52,3 +56,14 @@ def FlowersDetailView(request, flower_id):
         'flower': flower
     }
     return render(request=request, template_name='flower_detail_template.html', context=context)
+
+
+def FlowerCreateView(request):
+    if request.method == 'GET':
+        return render(request=request, template_name='flower_create_template.html')
+    elif request.method == 'POST':
+        name = request.POST.get('name').capitalize()
+        color = request.POST.get('color').capitalize()
+        flower = Flower(name=name, color=color)
+        flower.save()
+        return FlowersView(request)
