@@ -68,3 +68,19 @@ def FlowerCreateView(request):
         flower = Flower(name=name, color=color, image=image)
         flower.save()
         return redirect('flowers_url')
+
+
+def FlowerUpdateView(request, flower_id):
+    flower = Flower.objects.get(id=flower_id)
+    if request.method == 'GET':
+        context = {
+            'flower': flower
+        }
+        return render(request=request, template_name='flower_update_template.html', context=context)
+    elif request.method == 'POST':
+        flower.name = request.POST.get('name').capitalize()
+        flower.color = request.POST.get('color').capitalize()
+        if 'image' in request.FILES:
+            flower.image = request.FILES.get('image')
+        flower.save()
+        return redirect('flowers_url')
