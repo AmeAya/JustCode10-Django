@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bouquet Detail</title>
+</head>
+<body>
+    <div align="center">
+        <h1>{{ bouquet.name }}</h1>
+        <ul type="none">
+            {% for flower in bouquet.flowers.all %}
+                <li>{{ flower }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

@@ -13,4 +13,8 @@ urlpatterns = [
     path('flower/<int:flower_id>', FlowersDetailView, name='flowers_detail_url'),
     path('create_flower', FlowerCreateView, name='flower_create_url'),
     path('flower_update/<int:flower_id>', FlowerUpdateView, name='flower_update_url'),
+
+    path('bouquets', BouquetsView, name='bouquets_url'),
+    path('bouquet/<int:bouquet_id>', BouquetsDetailView, name='bouquets_detail_url'),
+    path('create_bouquet', BouquetsCreateView, name='bouquets_create_url'),
 ]

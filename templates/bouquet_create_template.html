@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bouquet Create</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <p>
+            <label for="name">Input Bouquet Name:</label>
+            <input type="text" id="name" name="name" required>
+        </p>
+
+        <p>
+            {% for flower in flowers %}
+                <input type="checkbox" id="{{ flower.id }}" name="flowers" value="{{ flower.id }}">
+                <label for="{{ flower.id }}">{{ flower.name }}</label>
+                <br>
+            {% endfor %}
+        </p>
+
+        <input type="submit" value="Create Bouquet">
+    </form>
+</body>
+</html>

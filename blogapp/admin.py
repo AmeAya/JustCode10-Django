@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(Post)
 admin.site.register(Flower)
 admin.site.register(FlowerType)
+admin.site.register(Bouquet)

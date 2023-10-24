@@ -29,3 +29,12 @@ class Flower(models.Model):
 
     def __str__(self):
         return str(self.name) + ' - ' + str(self.color)
+
+
+class Bouquet(models.Model):
+    name = models.CharField(max_length=100)
+    flowers = models.ManyToManyField('Flower')
+    # ManyToMany по умолчанию может быть пустым, поэтому для него on_delete е требуется
+
+    def __str__(self):
+        return self.name
