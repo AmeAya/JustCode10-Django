@@ -14,10 +14,18 @@ class Post(models.Model):
         return str(self.title) + ' - ' + str(self.created_at)[:19]
 
 
+class FlowerType(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
 class Flower(models.Model):
     name = models.CharField(max_length=100)
     color = models.CharField(max_length=20)
     image = models.ImageField(upload_to='flowers/', null=True, blank=True)
+    type = models.ForeignKey('FlowerType', on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return str(self.name) + ' - ' + str(self.color)

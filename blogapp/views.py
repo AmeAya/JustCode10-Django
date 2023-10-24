@@ -60,12 +60,17 @@ def FlowersDetailView(request, flower_id):
 
 def FlowerCreateView(request):
     if request.method == 'GET':
-        return render(request=request, template_name='flower_create_template.html')
+        flower_types = FlowerType.objects.all()
+        context = {
+            'flower_types': flower_types
+        }
+        return render(request=request, template_name='flower_create_template.html', context=context)
     elif request.method == 'POST':
         name = request.POST.get('name').capitalize()
         color = request.POST.get('color').capitalize()
+        flower_type = FlowerType.objects.get(id=request.POST.get('flower_type'))
         image = request.FILES.get('image')
-        flower = Flower(name=name, color=color, image=image)
+        flower = Flower(name=name, color=color, image=image, type=flower_type)
         flower.save()
         return redirect('flowers_url')
 

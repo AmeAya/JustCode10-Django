@@ -18,6 +18,16 @@
         </p>
 
         <p>
+            <label for="flower_type">Select Flower Type:</label>
+            <select id="flower_type" name="flower_type">
+                <option selected disabled>-----</option>
+                {% for type in flower_types %}
+                    <option value="{{ type.id }}">{{ type.name }}</option>
+                {% endfor %}
+            </select>
+        </p>
+
+        <p>
             <label for="image">Input Flower Image:</label>
             <input type="file" id="image" name="image">
         </p>
