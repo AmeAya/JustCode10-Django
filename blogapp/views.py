@@ -125,6 +125,25 @@ def BouquetsCreateView(request):
         return redirect('bouquets_url')
 
 
+def BouquetsUpdateView(request, bouquet_id):
+    bouquet = Bouquet.objects.get(id=bouquet_id)
+    if request.method == 'GET':
+        flowers = Flower.objects.all()
+        context = {
+            'bouquet': bouquet,
+            'flowers': flowers
+        }
+        return render(request=request, template_name='bouquet_update_template.html', context=context)
+    elif request.method == 'POST':
+        bouquet.name = request.POST.get('name')
+        flowers = request.POST.getlist('flowers')
+        bouquet.flowers.clear()
+        for flower in flowers:
+            bouquet.flowers.add(Flower.objects.get(id=flower))
+        bouquet.save()
+        return redirect('bouquets_detail_url', bouquet_id)
+
+
 def musicView(request):
     musics = Music.objects.all()
     context = {

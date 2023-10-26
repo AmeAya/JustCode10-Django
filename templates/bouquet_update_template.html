@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bouquet Update</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <p>
+            <label for="name">Input Bouquet Name:</label>
+            <input type="text" id="name" name="name" value="{{ bouquet.name }}" required>
+        </p>
+
+        <p>
+            {% for flower in flowers %}
+                {% if flower in bouquet.flowers.all %}
+                    <input type="checkbox" id="{{ flower.id }}" name="flowers" value="{{ flower.id }}" checked>
+                    <label for="{{ flower.id }}">{{ flower.name }}</label>
+                    <br>
+                {% else %}
+                    <input type="checkbox" id="{{ flower.id }}" name="flowers" value="{{ flower.id }}">
+                    <label for="{{ flower.id }}">{{ flower.name }}</label>
+                    <br>
+                {% endif %}
+            {% endfor %}
+        </p>
+
+        <input type="submit" value="Create Bouquet">
+    </form>
+</body>
+</html>

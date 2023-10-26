@@ -12,6 +12,7 @@
                 <li>{{ flower }}</li>
             {% endfor %}
         </ul>
+        <a href="{% url 'bouquets_update_url' bouquet.id %}">Update Bouquet</a>
     </div>
 </body>
 </html>
