@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Template</title>
+</head>
+<body>
+    <h1>Musics</h1>
+    <h3>{{ musics }}</h3>
+    {% for music in musics %}
+        <p>{{ music.music.url }}</p>
+        <audio controls id="player">
+            <source src="{{ music.music.url }}" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    {% endfor %}
+</body>
+</html>

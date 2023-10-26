@@ -38,3 +38,7 @@ class Bouquet(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Music(models.Model):
+    music = models.FileField(upload_to='music/')

@@ -123,3 +123,11 @@ def BouquetsCreateView(request):
             bouquet.flowers.add(Flower.objects.get(id=flower))
         bouquet.save()
         return redirect('bouquets_url')
+
+
+def musicView(request):
+    musics = Music.objects.all()
+    context = {
+        'musics': musics
+    }
+    return render(request=request, template_name='music_template.html', context=context)
