@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Bouquets</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
     <h1>Our Bouquets:</h1>
     <a href="{% url 'bouquets_create_url' %}">Create New Bouquet</a>
     {% for bouquet in bouquets %}
         <h3>{{ bouquet.name }}</h3>
         <a href="{% url 'bouquets_detail_url' bouquet.id %}">Get Info</a>
     {% endfor %}
-</body>
-</html>
+{% endblock %}

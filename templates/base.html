@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bouquets</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <ul>
+        <li>
+            <a href="default.asp">Home</a>
+        </li>
+        <li>
+            <a href="news.asp">News</a>
+        </li>
+        <li>
+            <a href="contact.asp">Contact</a>
+        </li>
+        <li>
+            <a href="about.asp">About</a>
+        </li>
+    </ul>
+    <img src="{% static 'img/logo.jpg' %}" width="200px">
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
